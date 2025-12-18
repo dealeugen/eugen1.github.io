@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大理全景旅游攻略 | 苍山洱海·古城古镇深度指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+        }
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            scroll-behavior: smooth; /* 全局平滑滚动 */
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(135deg, #e8f4f8 0%, #f0f8fb 100%);
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        h1 {
+            font-size: 2.8rem;
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            font-size: 1.2rem;
+            color: #718096;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        nav {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+            overflow: hidden;
+            position: sticky; /* 导航栏粘性定位 */
+            top: 0;
+            z-index: 100;
+        }
+        .nav-list {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+        }
+        .nav-item {
+            flex: 1;
+            text-align: center;
+        }
+        .nav-link {
+            display: block;
+            padding: 15px 10px;
+            color: #4a5568;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            background-color: #4299e1;
+            color: white;
+        }
+        .nav-link.active {
+            background-color: #3182ce;
+            color: white;
+        }
+        .section {
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            scroll-margin-top: 80px; /* 滚动偏移，避免被导航栏遮挡 */
+        }
+        .section-title {
+            font-size: 1.8rem;
+            color: #2d3748;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e8f4f8;
+            display: flex;
+            align-items: center;
+        }
+        .section-title i {
+            margin-right: 10px;
+            color: #4299e1;
+        }
+        .card {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        .card-title {
+            font-size: 1.4rem;
+            color: #2d3748;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .tag {
+            background-color: #e8f4f8;
+            color: #4299e1;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .card-content {
+            margin-bottom: 15px;
+        }
+        .info-list {
+            list-style: none;
+            margin-bottom: 15px;
+        }
+        .info-list li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: flex-start;
+        }
+        .info-list li:before {
+            content: "•";
+            color: #4299e1;
+            font-weight: bold;
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+        .highlight {
+            background-color: #fef7fb;
+            border-left: 4px solid #9f7aea;
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
+            margin: 15px 0;
+        }
+        .highlight-title {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 5px;
+        }
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e8f4f8;
+        }
+        th {
+            background-color: #f0f8fb;
+            color: #2d3748;
+            font-weight: 600;
+        }
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+        .tips {
+            background-color: #f5fafe;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #4299e1;
+        }
+        .tips-title {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .tips-title i {
+            margin-right: 8px;
+            color: #4299e1;
+        }
+        .避雷 {
+            background-color: #fef2f2;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #e53e3e;
+        }
+        .避雷-title {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+        .避雷-title i {
+            margin-right: 8px;
+            color: #e53e3e;
+        }
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .food-card {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease;
+        }
+        .food-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+        }
+        .food-name {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 8px;
+        }
+        .food-desc {
+            color: #718096;
+            font-size: 0.9rem;
+        }
+        /* 参考博主样式 */
+        .reference {
+            background-color: #f0f8fb;
+            border-left: 4px solid #4299e1;
+            padding: 12px 15px;
+            border-radius: 0 8px 8px 0;
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .reference-icon {
+            color: #4299e1;
+            font-size: 1.2rem;
+        }
+        .reference-text {
+            flex: 1;
+            font-size: 0.95rem;
+        }
+        .blogger-name {
+            color: #2d3748;
+            font-weight: 600;
+        }
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #718096;
+            font-size: 0.9rem;
+            border-top: 1px solid #e8f4f8;
+            margin-top: 40px;
+        }
+        /* 修复博主名称显示问题 */
+        .blogger-name.long {
+            white-space: normal;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        /* 响应式优化 */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .nav-list {
+                flex-direction: column;
+            }
+            .section {
+                padding: 20px;
+            }
+            .card-title {
+                font-size: 1.2rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            .food-grid {
+                grid-template-columns: 1fr;
+            }
+            table {
+                font-size: 0.9rem;
+            }
+            th, td {
+                padding: 10px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>大理全景旅游攻略</h1>
+            <p class="subtitle">苍山雪·洱海月·古城韵·古镇情 | 超全景点、美食、交通一站式指南</p>
+        </header>
+
+        <nav>
+            <ul class="nav-list">
+                <li class="nav-item"><a href="#overview" class="nav-link active">攻略总览</a></li>
+                <li class="nav-item"><a href="#attractions" class="nav-link">核心景点</a></li>
+                <li class="nav-item"><a href="#routes" class="nav-link">游玩路线</a></li>
+                <li class="nav-item"><a href="#food" class="nav-link">美食推荐</a></li>
+                <li class="nav-item"><a href="#tips" class="nav-link">实用贴士</a></li>
+                <li class="nav-item"><a href="#photography" class="nav-link">小众机位</a></li>
+            </ul>
+        </nav>
+
+        <section id="overview" class="section">
+            <h2 class="section-title"><i>📋</i>攻略总览</h2>
+            <div class="card">
+                <h3 class="card-title">大理核心区域分布 <span class="tag">四大板块</span></h3>
+                <div class="card-content">
+                    <div class="table-container">
+                        <table>
+                            <tr>
+                                <th>区域类型</th>
+                                <th>代表景点</th>
+                                <th>特色亮点</th>
+                            </tr>
+                            <tr>
+                                <td>苍山系</td>
+                                <td>苍山、崇圣寺三塔</td>
+                                <td>高山风光、佛教文化、索道体验</td>
+                            </tr>
+                            <tr>
+                                <td>古城系</td>
+                                <td>大理古城、周城、蝴蝶泉</td>
+                                <td>历史底蕴、民俗文化、文创小店</td>
+                            </tr>
+                            <tr>
+                                <td>环海西线</td>
+                                <td>才村、S弯、喜洲、海舌</td>
+                                <td>田园风光、骑行胜地、白族民居</td>
+                            </tr>
+                            <tr>
+                                <td>环海东线</td>
+                                <td>双廊、鹿卧山、小普陀、文笔村</td>
+                                <td>海岛风情、日落美景、网红打卡</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">交通出行概览 <span class="tag">便捷指南</span></h3>
+                <div class="card-content">
+                    <ul class="info-list">
+                        <li><strong>机场</strong>：大理凤仪机场，打车至古城约1小时</li>
+                        <li><strong>火车站</strong>：大理火车站，可乘公交或打车前往各景点</li>
+                        <li><strong>市内交通</strong>：打车、共享电动车、景区专线公交（部分景点可乘8路公交）</li>
+                        <li><strong>环海方式</strong>：自驾租车、电动车骑行、包车游（顺时针路线推荐）</li>
+                    </ul>
+                    
+                    <div class="reference">
+                        <span class="reference-icon">📱</span>
+                        <div class="reference-text">
+                            参考小红书博主：<span class="blogger-name">大理旅行攻略菌</span>、<span class="blogger-name">环洱海自驾指南</span> 的交通实测笔记
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="attractions" class="section">
+            <h2 class="section-title"><i>🏞️</i>核心景点详情</h2>
+            
+            <!-- 苍山 -->
+            <div class="card">
+                <h3 class="card-title">苍山 <span class="tag">海拔4092m</span></h3>
+                <div class="card-content">
+                    <ul class="info-list">
+                        <li><strong>门票</strong>：洗马潭大索道280元（提前3天大理旅游集团预约），感通索道110元</li>
+                        <li><strong>交通</strong>：大理古城西门打车至洗马潭索道下站（35元/程，30分钟）</li>
+                        <li><strong>推荐路线</strong>：1004级台阶直通山顶（距离短、体力消耗小），不推荐高山植物园路线</li>
+                        <li><strong>必体验</strong>：索道穿云视频、玉带路拍苍山洱海同框、4月赏高山杜鹃</li>
+                        <li><strong>耗时参考</strong>：全程约4-6小时（含索道往返+徒步）</li>
+                    </ul>
+                    
+                    <div class="highlight">
+                        <div class="highlight-title">体力差人群专属建议</div>
+                        <ul class="info-list">
+                            <li>提前准备氧气瓶，下索道后持续少量吸氧</li>
+                            <li>穿冲锋衣+羽绒服内胆，山顶风力大、气温低</li>
+                            <li>自备热水和少量巧克力，避免低血糖</li>
+                            <li>保持稳定节奏，避免跑跳引发高原反应</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="避雷">
+                        <div class="避雷-title">❌ 避坑指南</div>
+                        <ul class="info-list">
+                            <li>非晴天不坐全程索道（中站以下全是雾）</li>
+                            <li>不穿皮鞋徒步（玉带路多碎石）</li>
+                            <li>返程段体力消耗大，需预留充足休息时间</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="reference">
+                        <span class="reference-icon">📱</span>
+                        <div class="reference-text">
+                            参考小红书博主：<span class="blogger-name">7437960203</span>、<span class="blogger-name">苍山索道攻略君</span> 的实地体验笔记
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 大理古城 -->
+            <div class="card">
+                <h3 class="card-title">大理古城 <span class="tag">免费开放</span></h3>
+                <div class="card-content">
+                    <ul class="info-list">
+                        <li><strong>门票</strong>：古城免费，五华楼登楼20元</li>
+                        <li><strong>推荐路线</strong>：南门楼→红龙井→五华楼→上山喝茶→文庙→文创街区→天主教堂（3-4小时）</li>
+                        <li><strong>特色体验</strong>：人民路夜景、银苍路文创小店、屋顶咖啡全景view</li>
+                        <li><strong>美食集中地</strong>：九隆居小吃街、博爱路特色餐馆</li>
+                    </ul>
+                    
+                    <div class="避雷">
+                        <div class="避雷-title">❌ 避坑指南</div>
+                        <ul class="info-list">
+                            <li>洋人街买特产（价格比北门贵3倍）</li>
+                            <li>酒吧街喝果酒（勾兑居多）</li>
+                            <li>不建议徒步走遍四个城门，体力消耗过大</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="reference">
+                        <span class="reference-icon">📱</span>
+                        <div class="reference-text">
+                            参考小红书博主：<span class="blogger-name long">986719037 - 大理古城一日游|citywalk图文路线攻略</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 崇圣寺三塔 -->
+            <div class="card">
+                <h3 class="card-title">崇圣寺三塔 <span class="tag">5A景点</span></h3>
+                <div class="card-content">
+                    <ul class="info-list">
+                        <li><strong>门票</strong>：75元</li>
+                        <li><strong>位置</strong>：大理古城西北约1.5公里，背靠苍山面朝洱海</li>
+                        <li><strong>推荐路线</strong>：游客中心→倒影公园（顺光拍三塔倒影）→主寺区→大雄宝殿（10点整敲钟）→望海楼（俯瞰全景）</li>
+                        <li><strong>亮点</strong>：黑神话悟空取景地、大理唯一5A景点、佛教文化圣地</li>
+                    </ul>
+                    
+                    <div class="避雷">
+                        <div class="避雷-title">❌ 避坑指南</div>
+                        <ul class="info-list">
+                            <li>不跟门口野导（收费50元，多为网传故事）</li>
+                            <li>雨天不入园（无倒影+地面滑）</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="reference">
+                        <span class="reference-icon">📱</span>
+                        <div class="reference-text">
+                            参考小红书博主：<span class="blogger-name">4264000511</span>、<span class="blogger-name">秋白</span> 的取景地打卡笔记
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 喜洲古镇 -->
+            <div class="card">
+                <h3 class="card-title">喜洲古镇 <span class="tag">田园风光</span></h3>
+                <div class="card-content">
+                    <ul class="info-list">
+                        <li><strong>门票</strong>：古镇免费，严家大院30元（不推荐）</li>
+                        <li><strong>推荐路线</strong>：正义门→食花记手工作坊→蓝意扎染店→稼穑集农耕文化艺术馆→转角楼→麦田咖啡→有风大树</li>
+                        <li><strong>特色体验</strong>：扎染体验、麦田拍照、白族特色美食</li>
+                        <li><strong>最佳季节</strong>：5-6月、9月（稻田风光最佳，1月刚发芽观赏性一般）</li>
+                    </ul>
+                    
+                    <div class="避雷">
+                        <div class="避雷-title">❌ 避坑指南</div>
+                        <ul class="info-list">
+                            <li>四方街网红粑粑（10元/个，普通烧饼味）</li>
+                            <li>古镇内扎染店（价格比周城贵50元）</li>
+                            <li>麦田咖啡屋距古镇2km，步行较远，建议酌情前往</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="reference">
+                        <span class="reference-icon">📱</span>
+                        <div class="reference-text">
+                            参考小红书博主：<span class="blogger-name">986719037</span>、<span class="blogger-name">喜洲田园攻略</span> 的实地体验笔记
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 双廊古镇 -->
+            <div class="card">
+                <h3 class="card-title">双廊古镇 <span class="tag">文艺打卡</span></h3>
+                <div class="card-content">
+                    <ul class="info-list">
+                        <li><strong>门票</strong>：古镇免费，南诏风情岛50元</li>
+                        <li><strong>推荐路线</strong>：北门进→古戏台→洱海湿地公园→魁星阁→玉几岛→南诏风情岛→轮渡码头→南门出（不走回头路）</li>
+                        <li><strong>必体验</strong>：海街临海步道拍照、太阳宫艺术空间（上午免费预约）、沿海公路骑行</li>
+                        <li><strong>美食推荐</strong>：酸辣鱼、烤乳扇、舂鸡脚、包浆豆腐</li>
+                    </ul>
+                    
+                    <div class="tips">
+                        <div class="tips-title"><i>💡</i> 游玩贴士</div>
+                        <ul class="info-list">
+                            <li>旺季（13:00-16:00）人最多，建议错峰游览</li>
+                            <li>穿舒适鞋子，古镇石板路较多</li>
+                            <li>租电动车约50元/天，注意做好防晒</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="reference">
+                        <span class="reference-icon">📱</span>
+                        <div class="reference-text">
+                            参考小红书博主：<span class="blogger-name">385252328</span>、<span class="blogger-name">双廊文艺打卡指南</span> 的游玩笔记
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- S弯(磻溪村) -->
+            <div class="card">
+                <h3 class="card-title">S弯（磻溪村） <span class="tag">免费打卡</span></h3>
+                <div class="card-content">
+                    <ul class="info-list">
+                        <li><strong>位置</strong>：大理磻溪村，距古城10km，喜洲8km（导航"磻溪S湾"）</li>
+                        <li><strong>亮点</strong>：洱海生态廊道、海天一色骑行、网红旅拍圣地</li>
+                        <li><strong>最佳时间</strong>：早8点或傍晚（人少光线柔）</li>
+                        <li><strong>游玩方式</strong>：租单车骑行（20-30元）、路边咖啡店观景</li>
+                    </ul>
+                    
+                    <div class="避雷">
+                        <div class="避雷-title">❌ 避坑指南</div>
+                        <ul class="info-list">
+                            <li>9点后去主弯道（旅行团扎堆，拍不到空镜）</li>
+                            <li>租私人电动车（50元/天，比共享贵）</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="reference">
+                        <span class="reference-icon">📱</span>
+                        <div class="reference-text">
+                            参考小红书博主：<span class="blogger-name">S湾旅拍攻略</span>、<span class="blogger-name">洱海生态廊道骑行</span> 的网红打卡笔记
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="routes" class="section">
+            <h2 class="section-title"><i>🗺️</i>经典游玩路线</h2>
+            
+            <!-- 环洱海自驾路线 -->
+            <div class="card">
+                <h3 class="card-title">环洱海自驾一日游 <span class="tag">顺时针路线</span></h3>
+                <div class="card-content">
+                    <div class="table-container">
+                        <table>
+                            <tr>
+                                <th>站点</th>
+                                <th>游玩时间</th>
+                                <th>行驶距离</th>
+                                <th>特色体验</th>
+                            </tr>
+                            <tr>
+                                <td>双廊古镇</td>
+                                <td>10:00-12:00</td>
+                                <td>起点</td>
+                                <td>古镇漫步、文艺拍照、海街观景</td>
+                            </tr>
+                            <tr>
+                                <td>鹿卧山</td>
+                                <td>13:00-14:30</td>
+                                <td>12公里（28分钟）</td>
+                                <td>洞穴洱海拍照、废弃窗户机位</td>
+                            </tr>
+                            <tr>
+                                <td>挖色镇</td>
+                                <td>14:30-15:30</td>
+                                <td>2公里（4分钟）</td>
+                                <td>小普陀看海鸥（11-3月）、礁石滩打卡</td>
+                            </tr>
+                            <tr>
+                                <td>文笔村</td>
+                                <td>15:30-17:30</td>
+                                <td>14公里（33分钟）</td>
+                                <td>彩虹路日落、悬崖观景台拍倒影</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <div class="tips">
+                        <div class="tips-title"><i>💡</i> 租车指南</div>
+                        <ul class="info-list">
+                            <li>提前敲定车型和合同细节</li>
+                            <li>验车时仔细检查车辆状况（含详细功能介绍）</li>
+                            <li>全程做好防晒，备好饮用水</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="reference">
+                        <span class="reference-icon">📱</span>
+                        <div class="reference-text">
+                            参考小红书博主：<span class="blogger-name">632210021</span>、<span class="blogger-name">大理一日游路线规划</span> 的实测路线笔记
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 古城+苍山两日游 -->
+            <div class="card">
+                <h3 class="card-title">古城+苍山深度两日游 <span class="tag">休闲舒适</span></h3>
+                <div class="card-content">
+                    <h4>Day 1：大理古城深度游</h4>
+                    <ul class="info-list">
+                        <li>上午：南门楼→红龙井→五华楼→文庙（感受历史文化）</li>
+                        <li>中午：九隆居小吃街品尝特色美食</li>
+                        <li>下午：银苍路文创街区→野柚子→为什么我要开咖啡店（文艺打卡）</li>
+                        <li>晚上：人民路夜景→屋顶咖啡看苍山全景</li>
+                    </ul>
+                    
+                    <h4 style="margin-top: 15px;">Day 2：苍山索道+崇圣寺三塔</h4>
+                    <ul class="info-list">
+                        <li>上午：洗马潭索道登顶→玉带路徒步→拍洱海全景（11:00-16:00最佳）</li>
+                        <li>中午：索道下山，打车至古城附近用餐</li>
+                        <li>下午：崇圣寺三塔→倒影公园拍照→大雄宝殿听钟鸣→望海楼俯瞰全景</li>
+                    </ul>
+                    
+                    <div class="reference">
+                        <span class="reference-icon">📱</span>
+                        <div class="reference-text">
+                            参考小红书博主：<span class="blogger-name">大理两日游攻略</span>、<span class="blogger-name">休闲旅行家小敏</span> 的行程规划笔记
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="food" class="section">
+            <h2 class="section-title"><i>🍜</i>美食推荐汇总</h2>
+            
+            <div class="card">
+                <h3 class="card-title">白族菜 <span class="tag">本地特色</span></h3>
+                <div class="food-grid">
+                    <div class="food-card">
+                        <div class="food-name">桃红小馆·特色大理菜</div>
+                        <div class="food-desc">必点酸辣鱼（本地口味）、竹筒野生菌，下饭神器</div>
+                    </div>
+                    <div class="food-card">
+                        <div class="food-name">岛七</div>
+                        <div class="food-desc">网友+本地人强推，口碑爆棚</div>
+                    </div>
+                    <div class="food-card">
+                        <div class="food-name">阿菊饭庄</div>
+                        <div class="food-desc">老大理味道，当地人喜爱的家常菜馆</div>
+                    </div>
+                    <div class="food-card">
+                        <div class="food-name">顺风餐厅</div>
+                        <div class="food-desc">本地人推荐，爆炒见手青必点</div>
+                    </div>
+                    <div class="food-card">
+                        <div class="food-name">四方小吃</div>
+                        <div class="food-desc">特色小吃集合，本地人推荐打卡点</div>
+                    </div>
+                </div>
+                
+                <div class="reference">
+                    <span class="reference-icon">📱</span>
+                    <div class="reference-text">
+                        参考小红书博主：<span class="blogger-name">cbfcbf0606</span>、<span class="blogger-name">白族菜吃货指南</span> 的探店笔记
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">特色火锅 <span class="tag">暖心暖胃</span></h3>
+                <div class="food-grid">
+                    <div class="food-card">
+                        <div class="food-name">边寨马铃·野生菌火锅</div>
+                        <div class="food-desc">纯正野生菌，火腿鸡肉底汤，秘制蘸料绝了</div>
+                    </div>
+                    <div class="food-card">
+                        <div class="food-name">滇菌肴野生菌火塘</div>
+                        <div class="food-desc">Vlog博主推荐，菌汤鲜美，口感醇厚</div>
+                    </div>
+                    <div class="food-card">
+                        <div class="food-name">牛牛小院</div>
+                        <div class="food-desc">本地人推荐火瓢牛肉，风评极佳</div>
+                    </div>
+                    <div class="food-card">
+                        <div class="food-name">赛龙火一瓢清真牛肉火锅</div>
+                        <div class="food-desc">本地人气火锅店，牛肉新鲜，味道正宗</div>
+                    </div>
+                </div>
+                
+                <div class="reference">
+                    <span class="reference-icon">📱</span>
+                    <div class="reference-text">
+                        参考小红书博主：<span class="blogger-name">cbfcbf0606</span>、<span class="blogger-name">野生菌美食攻略</span> 的美食测评笔记
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">米线&面包 <span class="tag">早餐&小吃</span></h3>
+                <div class="food-grid">
+                    <div class="food-card">
+                        <div class="food-name">老黄牛口缸米线</div>
+                        <div class="food-desc">藤姐vlog同款，特色口缸装，味道地道</div>
+                    </div>
+                    <div class="food-card">
+                        <div class="food-name">正宗开远米线</div>
+                        <div class="food-desc">大理版omakase，二毛坨子强推</div>
+                    </div>
+                    <div class="food-card">
+                        <div class="food-name">三内可颂</div>
+                        <div class="food-desc">网红面包店，可颂酥脆，颜值口味双在线</div>
+                    </div>
+                    <div class="food-card">
+                        <div class="food-name">普通面包社</div>
+                        <div class="food-desc">旅居大理人士推荐，性价比高</div>
+                    </div>
+                </div>
+                
+                <div class="reference">
+                    <span class="reference-icon">📱</span>
+                    <div class="reference-text">
+                        参考小红书博主：<span class="blogger-name">cbfcbf0606</span>、<span class="blogger-name">大理面包控</span> 的特色小吃推荐笔记
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">少数民族特色菜 <span class="tag">异域风味</span></h3>
+                <div class="food-grid">
+                    <div class="food-card">
+                        <div class="food-name">景傣民族孔雀宴</div>
+                        <div class="food-desc">傣族手抓饭超好吃，颜值高适合拍照</div>
+                    </div>
+                    <div class="food-card">
+                        <div class="food-name">香傣苑</div>
+                        <div class="food-desc">本地人N刷，味道正宗，隐藏宝藏店</div>
+                    </div>
+                    <div class="food-card">
+                        <div class="food-name">勐卯园</div>
+                        <div class="food-desc">UP主推荐傣族菜，特色鲜明</div>
+                    </div>
+                </div>
+                
+                <div class="reference">
+                    <span class="reference-icon">📱</span>
+                    <div class="reference-text">
+                        参考小红书博主：<span class="blogger-name">cbfcbf0606</span>、<span class="blogger-name">傣族菜探店指南</span> 的特色菜推荐笔记
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tips" class="section">
+            <h2 class="section-title"><i>💡</i>实用贴士汇总</h2>
+            
+            <div class="card">
+                <h3 class="card-title">出行准备 <span class="tag">必备清单</span></h3>
+                <div class="card-content">
+                    <ul class="info-list">
+                        <li><strong>衣物</strong>：冲锋衣、羽绒服内胆（苍山山顶）、浅色裙（拍照）、舒适徒步鞋</li>
+                        <li><strong>防护用品</strong>：防晒霜（高倍数）、太阳镜（应对紫外线和冰雪反光）、帽子</li>
+                        <li><strong>随身物品</strong>：氧气瓶（苍山必备）、热水壶、巧克力（防低血糖）、充电宝</li>
+                        <li><strong>其他</strong>：身份证、预约截图（索道/景点）、少量现金（部分小店）</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">季节与时间 <span class="tag">最佳参考</span></h3>
+                <div class="card-content">
+                    <ul class="info-list">
+                        <li><strong>苍山冬季</strong>：11:00-16:00游览最佳，日照充足体感舒适，预留2小时返程时间</li>
+                        <li><strong>喜洲麦田</strong>：5-6月、9月最佳，1月刚发芽观赏性一般</li>
+                        <li><strong>小普陀海鸥</strong>：11月-次年3月，可拍海鸥环绕小岛美景</li>
+                        <li><strong>通用建议</strong>：避开节假日旺季，错峰出行体验更佳</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">费用预算 <span class="tag">省钱攻略</span></h3>
+                <div class="card-content">
+                    <ul class="info-list">
+                        <li><strong>景点门票</strong>：苍山索道280元+崇圣寺三塔75元+南诏风情岛50元（核心景点必付约405元）</li>
+                        <li><strong>交通费用</strong>：打车单次30-50元，租车约200-300元/天，电动车20-50元/天</li>
+                        <li><strong>餐饮预算</strong>：人均50-100元/餐，特色火锅人均100-150元</li>
+                        <li><strong>省钱技巧</strong>：选择免费景点、古镇内免费打卡点、周城扎染比喜洲便宜</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="photography" class="section">
+            <h2 class="section-title"><i>📸</i>小众机位合集</h2>
+            
+            <div class="card">
+                <div class="card-content">
+                    <div class="table-container">
+                        <table>
+                            <tr>
+                                <th>景点</th>
+                                <th>小众机位导航点</th>
+                                <th>拍照技巧</th>
+                                <th>图片关键词</th>
+                            </tr>
+                            <tr>
+                                <td>鹿卧山</td>
+                                <td>鹿卧山遗址入口左转100米</td>
+                                <td>穿浅色裙+逆光拍洞穴洱海</td>
+                                <td>鹿卧山废弃窗户洱海</td>
+                            </tr>
+                            <tr>
+                                <td>文笔村</td>
+                                <td>海之礼堂旁悬崖观景台</td>
+                                <td>日落时分拍彩虹路+洱海倒影</td>
+                                <td>文笔村彩虹路日落</td>
+                            </tr>
+                            <tr>
+                                <td>挖色小普陀</td>
+                                <td>小普陀北侧礁石滩</td>
+                                <td>11-3月拍海鸥环绕小岛</td>
+                                <td>挖色小普陀海鸥群</td>
+                            </tr>
+                            <tr>
+                                <td>廊桥</td>
+                                <td>廊桥北侧芦苇丛</td>
+                                <td>下午2点拍桥洞光影+芦苇前景</td>
+                                <td>磻溪廊桥光影剪影</td>
+                            </tr>
+                            <tr>
+                                <td>才村</td>
+                                <td>才村水杉林（生态廊道中段）</td>
+                                <td>阴天拍森系水杉+洱海远景</td>
+                                <td>才村水杉林森系照</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <div class="reference">
+                        <span class="reference-icon">📱</span>
+                        <div class="reference-text">
+                            参考小红书博主：<span class="blogger-name">大理旅拍机位攻略</span>、<span class="blogger-name">摄影博主阿泽</span> 的小众打卡点笔记
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2024 大理全景旅游攻略 | 攻略参考小红书多位博主实地体验，详细参考账号见各模块标注</p>
+            <p>温馨提示：出行前请确认景点开放时间及门票政策，祝您旅途愉快！</p>
+        </footer>
+    </div>
+
+    <script>
+        // 导航栏激活状态切换（基于滚动位置）
+        const sections = document.querySelectorAll('.section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        // 初始激活状态
+        navLinks[0].classList.add('active');
+        
+        // 滚动监听
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // 平滑滚动（增强版）
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80, // 偏移量，避免被导航栏遮挡
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 为表格添加响应式处理（小屏幕横向滚动提示）
+        const tableContainers = document.querySelectorAll('.table-container');
+        tableContainers.forEach(container => {
+            const table = container.querySelector('table');
+            if (table) {
+                container.addEventListener('scroll', () => {
+                    if (container.scrollLeft > 10) {
+                        container.style.boxShadow = '0 0 10px rgba(66, 153, 225, 0.2)';
+                    } else {
+                        container.style.boxShadow = 'none';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
